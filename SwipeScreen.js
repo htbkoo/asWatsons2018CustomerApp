@@ -61,7 +61,7 @@ class SwipeScreen extends Component {
                         ref={swiper => {
                             this.swiper = swiper
                         }}
-                        backgroundColor={'#4FD0E9'}
+                        backgroundColor={'#FFFFFF'}
                         disableBottomSwipe={true}
                         disableTopSwipe={true}
                         onSwiped={this.onSwiped}
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: '#E8E8E8',
         justifyContent: 'center',
-        backgroundColor: 'lightgrey'
+        backgroundColor: '#4FD0E9'
     },
     text: {
         textAlign: 'center',
