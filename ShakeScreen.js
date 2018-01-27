@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import {StyleSheet, View} from 'react-native'
-import AccelerometerSensor from "./AcecelerometerSensor";
+import ShakeSensor from "./ShakeSensor";
 
 class ShakeScreen extends Component {
     render() {
         console.log("rendered ShakeScreen");
         return (
             <View style={styles.shakeContainer}>
-                <AccelerometerSensor/>
+                <ShakeSensor/>
             </View>
         )
     }
