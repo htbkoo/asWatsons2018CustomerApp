@@ -3,11 +3,14 @@ import {StyleSheet, View} from 'react-native';
 import {Header} from 'react-native-elements';
 import {Swiper} from "react-native-deck-swiper";
 import SwipeExample from "./SwipeExample";
+import SwipeCard from "./SwipeCard";
 
 class App extends React.Component {
     render() {
         return (
-            <SwipeExample/>
+            <View style={styles.container}>
+                <SwipeCard/>
+            </View>
         );
     }
 }
