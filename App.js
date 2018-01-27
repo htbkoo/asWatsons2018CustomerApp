@@ -66,9 +66,17 @@ class App extends Component {
                         onSwiped={this.onSwiped}
                         onTapCard={this.swipeLeft}
                         cards={this.state.cards}
+                        cardStyle={{
+                            top: 0,
+                            left: 0,
+                            bottom: 0,
+                            right: 0,
+                            width: 'auto',
+                            height: 'auto'
+                        }}
                         cardIndex={this.state.cardIndex}
-                        cardVerticalMargin={160}
-                        marginTop={-60}
+                        cardVerticalMargin={320}
+                        marginTop={-100}
                         renderCard={this.renderCard}
                         onSwipedAll={this.onSwipedAllCards}
                         overlayLabels={overlayLabels}
@@ -86,10 +94,10 @@ class App extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F5FCFF'
+        backgroundColor: '#EEEEFF'
     },
     swiperContainer: {
-        flex: 6,
+        flex: 8,
         backgroundColor: '#F5FCFF'
     },
     card: {
