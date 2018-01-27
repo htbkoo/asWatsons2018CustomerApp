@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import StickyHeaderFooterScrollView from 'react-native-sticky-header-footer-scroll-view'
 import {Header} from 'react-native-elements';
+import {Swiper} from "react-native-deck-swiper";
 
 export default class App extends React.Component {
     render() {
@@ -9,7 +9,7 @@ export default class App extends React.Component {
             <View style={styles.fullScreen}>
                 <Header
                     leftComponent={{icon: 'menu', color: '#fff'}}
-                    centerComponent={{text: 'MY TITLE', style: {color: '#fff'}}}
+                    centerComponent={{text: 'Swipe to choose your product', style: {color: '#fff'}}}
                     rightComponent={{icon: 'home', color: '#fff'}}
                 />
                 <View style={styles.container}>
