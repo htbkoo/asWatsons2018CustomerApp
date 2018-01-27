@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button} from 'react-native'
 
-import {StackNavigator} from 'react-navigation';
+import {TabNavigator} from 'react-navigation';
 import SwipeScreen from "./SwipeScreen";
 
 class HomeScreen extends React.Component {
@@ -20,9 +20,15 @@ class HomeScreen extends React.Component {
     }
 }
 
-const App = StackNavigator({
+const App = TabNavigator({
     Home: {screen: HomeScreen},
     Swipe: {screen: SwipeScreen},
+}, {
+    tabBarPosition: 'bottom',
+    animationEnabled: true,
+    tabBarOptions: {
+        // activeTintColor: '#e91e63',
+    },
 });
 
 export default App;
