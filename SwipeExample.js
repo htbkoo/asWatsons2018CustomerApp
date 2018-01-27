@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import Swiper from 'react-native-deck-swiper'
-import {Button, StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, Text, View} from 'react-native'
 
-export default class SwipeExample extends Component {
+class SwipeExample extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -171,3 +171,5 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent'
     }
 });
+
+export default SwipeExample;
