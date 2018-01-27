@@ -43,7 +43,7 @@ export default class GyroscopeSensor extends React.Component {
     };
 
     render() {
-        let {x, y, z} = this.state.gyroscopeData; 9
+        let {x, y, z} = this.state.gyroscopeData;
 
         return (
             <View style={styles.sensor}>
