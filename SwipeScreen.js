@@ -1,12 +1,16 @@
 import React, {Component} from 'react'
 import Swiper from 'react-native-deck-swiper'
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, Text, View, Image, Button} from 'react-native'
 
 class SwipeScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cards: ['1', '2', '3'],
+            cards: [
+                {src: require('./resources/img/elephant.jpg'), index: 1},
+                {src: require('./resources/img/ws-logo1.jpg'), index: 2},
+                {src: require('./resources/img/pig_bone.jpg'), index: 3}
+            ],
             swipedAllCards: false,
             swipeDirection: '',
             isSwipingBack: false,
@@ -17,7 +21,10 @@ class SwipeScreen extends Component {
     renderCard = card => {
         return (
             <View style={styles.card}>
-                <Text style={styles.text}>{card}</Text>
+                <View style={[styles.center, styles.logoImage]}>
+                    <Image source={card.src}/>
+                </View>
+                <Text style={styles.text}>{card.index}</Text>
             </View>
         )
     };
@@ -84,7 +91,12 @@ class SwipeScreen extends Component {
                     >
                     </Swiper>
                 </View>
-                <View style={styles.container}/>
+                <View style={styles.container}>
+                    <Button
+                        title="I am done!"
+                        onPress={this.props.navigation.navigate.bind(this, 'Shake', {})}
+                    />
+                </View>
             </View>
         )
     }
