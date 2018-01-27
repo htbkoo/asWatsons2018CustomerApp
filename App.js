@@ -1,8 +1,7 @@
-import React, {Component} from 'react'
-import Swiper from 'react-native-deck-swiper'
-import {Button, StyleSheet, Text, View} from 'react-native'
+import React from 'react'
+import {Button} from 'react-native'
 
-import {StackNavigator,} from 'react-navigation';
+import {StackNavigator} from 'react-navigation';
 import SwipeScreen from "./SwipeScreen";
 
 class HomeScreen extends React.Component {
