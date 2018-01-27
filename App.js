@@ -68,78 +68,10 @@ class App extends Component {
                         cards={this.state.cards}
                         cardIndex={this.state.cardIndex}
                         cardVerticalMargin={160}
+                        marginTop={-60}
                         renderCard={this.renderCard}
                         onSwipedAll={this.onSwipedAllCards}
-                        overlayLabels={{
-                            bottom: {
-                                title: 'BLEAH',
-                                style: {
-                                    label: {
-                                        backgroundColor: 'black',
-                                        borderColor: 'black',
-                                        color: 'white',
-                                        borderWidth: 1
-                                    },
-                                    wrapper: {
-                                        flexDirection: 'column',
-                                        alignItems: 'center',
-                                        justifyContent: 'center'
-                                    }
-                                }
-                            },
-                            left: {
-                                title: 'NOPE',
-                                style: {
-                                    label: {
-                                        backgroundColor: 'black',
-                                        borderColor: 'black',
-                                        color: 'white',
-                                        borderWidth: 1
-                                    },
-                                    wrapper: {
-                                        flexDirection: 'column',
-                                        alignItems: 'flex-end',
-                                        justifyContent: 'flex-start',
-                                        marginTop: 30,
-                                        marginLeft: -30
-                                    }
-                                }
-                            },
-                            right: {
-                                title: 'LIKE',
-                                style: {
-                                    label: {
-                                        backgroundColor: 'black',
-                                        borderColor: 'black',
-                                        color: 'white',
-                                        borderWidth: 1
-                                    },
-                                    wrapper: {
-                                        flexDirection: 'column',
-                                        alignItems: 'flex-start',
-                                        justifyContent: 'flex-start',
-                                        marginTop: 30,
-                                        marginLeft: 30
-                                    }
-                                }
-                            },
-                            top: {
-                                title: 'SUPER LIKE',
-                                style: {
-                                    label: {
-                                        backgroundColor: 'black',
-                                        borderColor: 'black',
-                                        color: 'white',
-                                        borderWidth: 1
-                                    },
-                                    wrapper: {
-                                        flexDirection: 'column',
-                                        alignItems: 'center',
-                                        justifyContent: 'center'
-                                    }
-                                }
-                            }
-                        }}
+                        overlayLabels={overlayLabels}
                         animateOverlayLabelsOpacity
                         animateCardOpacity
                     >
@@ -180,5 +112,76 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent'
     }
 });
+
+const overlayLabels = {
+    bottom: {
+        title: 'BLEAH',
+        style: {
+            label: {
+                backgroundColor: 'black',
+                borderColor: 'black',
+                color: 'white',
+                borderWidth: 1
+            },
+            wrapper: {
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }
+        }
+    },
+    left: {
+        title: 'NOPE',
+        style: {
+            label: {
+                backgroundColor: 'black',
+                borderColor: 'black',
+                color: 'white',
+                borderWidth: 1
+            },
+            wrapper: {
+                flexDirection: 'column',
+                alignItems: 'flex-end',
+                justifyContent: 'flex-start',
+                marginTop: 30,
+                marginLeft: -30
+            }
+        }
+    },
+    right: {
+        title: 'LIKE',
+        style: {
+            label: {
+                backgroundColor: 'black',
+                borderColor: 'black',
+                color: 'white',
+                borderWidth: 1
+            },
+            wrapper: {
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                justifyContent: 'flex-start',
+                marginTop: 30,
+                marginLeft: 30
+            }
+        }
+    },
+    top: {
+        title: 'SUPER LIKE',
+        style: {
+            label: {
+                backgroundColor: 'black',
+                borderColor: 'black',
+                color: 'white',
+                borderWidth: 1
+            },
+            wrapper: {
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center'
+            }
+        }
+    }
+};
 
 export default App;
