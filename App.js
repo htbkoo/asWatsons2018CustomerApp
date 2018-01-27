@@ -75,8 +75,6 @@ class App extends Component {
                             height: 'auto'
                         }}
                         cardIndex={this.state.cardIndex}
-                        cardVerticalMargin={320}
-                        marginTop={-100}
                         renderCard={this.renderCard}
                         onSwipedAll={this.onSwipedAllCards}
                         overlayLabels={overlayLabels}
