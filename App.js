@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, View, ScrollView, Image} from 'react-native'
 
-import {TabNavigator} from 'react-navigation';
+import {StackNavigator} from 'react-navigation';
 import SwipeScreen from "./SwipeScreen";
 import ShakeScreen from "./ShakeScreen";
 
@@ -42,16 +42,11 @@ const styles = {
     logoImage: {}
 };
 
-const App = TabNavigator({
-    Home: {screen: HomeScreen},
-    Swipe: {screen: SwipeScreen},
-    Shake: {screen: ShakeScreen},
-}, {
-    tabBarPosition: 'bottom',
-    animationEnabled: true,
-    tabBarOptions: {
-        // activeTintColor: '#e91e63',
-    },
-});
+const App = StackNavigator({
+        Home: {screen: HomeScreen},
+        Swipe: {screen: SwipeScreen},
+        Shake: {screen: ShakeScreen},
+    }
+);
 
 export default App;
