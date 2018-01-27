@@ -52,95 +52,100 @@ class SwipeExample extends Component {
     };
 
     render() {
+        console.log("rendered SwipeExample");
         return (
             <View style={styles.container}>
-                <Swiper
-                    ref={swiper => {
-                        this.swiper = swiper
-                    }}
-                    disableBottomSwipe={true}
-                    disableTopSwipe={true}
-                    onSwiped={this.onSwiped}
-                    onTapCard={this.swipeLeft}
-                    cards={this.state.cards}
-                    cardIndex={this.state.cardIndex}
-                    cardVerticalMargin={80}
-                    renderCard={this.renderCard}
-                    onSwipedAll={this.onSwipedAllCards}
-                    overlayLabels={{
-                        bottom: {
-                            title: 'BLEAH',
-                            style: {
-                                label: {
-                                    backgroundColor: 'black',
-                                    borderColor: 'black',
-                                    color: 'white',
-                                    borderWidth: 1
-                                },
-                                wrapper: {
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
+                <View style={styles.container}/>
+                <View style={styles.swiperContainer}>
+                    <Swiper
+                        ref={swiper => {
+                            this.swiper = swiper
+                        }}
+                        disableBottomSwipe={true}
+                        disableTopSwipe={true}
+                        onSwiped={this.onSwiped}
+                        onTapCard={this.swipeLeft}
+                        cards={this.state.cards}
+                        cardIndex={this.state.cardIndex}
+                        cardVerticalMargin={160}
+                        renderCard={this.renderCard}
+                        onSwipedAll={this.onSwipedAllCards}
+                        overlayLabels={{
+                            bottom: {
+                                title: 'BLEAH',
+                                style: {
+                                    label: {
+                                        backgroundColor: 'black',
+                                        borderColor: 'black',
+                                        color: 'white',
+                                        borderWidth: 1
+                                    },
+                                    wrapper: {
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
+                                    }
+                                }
+                            },
+                            left: {
+                                title: 'NOPE',
+                                style: {
+                                    label: {
+                                        backgroundColor: 'black',
+                                        borderColor: 'black',
+                                        color: 'white',
+                                        borderWidth: 1
+                                    },
+                                    wrapper: {
+                                        flexDirection: 'column',
+                                        alignItems: 'flex-end',
+                                        justifyContent: 'flex-start',
+                                        marginTop: 30,
+                                        marginLeft: -30
+                                    }
+                                }
+                            },
+                            right: {
+                                title: 'LIKE',
+                                style: {
+                                    label: {
+                                        backgroundColor: 'black',
+                                        borderColor: 'black',
+                                        color: 'white',
+                                        borderWidth: 1
+                                    },
+                                    wrapper: {
+                                        flexDirection: 'column',
+                                        alignItems: 'flex-start',
+                                        justifyContent: 'flex-start',
+                                        marginTop: 30,
+                                        marginLeft: 30
+                                    }
+                                }
+                            },
+                            top: {
+                                title: 'SUPER LIKE',
+                                style: {
+                                    label: {
+                                        backgroundColor: 'black',
+                                        borderColor: 'black',
+                                        color: 'white',
+                                        borderWidth: 1
+                                    },
+                                    wrapper: {
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
+                                    }
                                 }
                             }
-                        },
-                        left: {
-                            title: 'NOPE',
-                            style: {
-                                label: {
-                                    backgroundColor: 'black',
-                                    borderColor: 'black',
-                                    color: 'white',
-                                    borderWidth: 1
-                                },
-                                wrapper: {
-                                    flexDirection: 'column',
-                                    alignItems: 'flex-end',
-                                    justifyContent: 'flex-start',
-                                    marginTop: 30,
-                                    marginLeft: -30
-                                }
-                            }
-                        },
-                        right: {
-                            title: 'LIKE',
-                            style: {
-                                label: {
-                                    backgroundColor: 'black',
-                                    borderColor: 'black',
-                                    color: 'white',
-                                    borderWidth: 1
-                                },
-                                wrapper: {
-                                    flexDirection: 'column',
-                                    alignItems: 'flex-start',
-                                    justifyContent: 'flex-start',
-                                    marginTop: 30,
-                                    marginLeft: 30
-                                }
-                            }
-                        },
-                        top: {
-                            title: 'SUPER LIKE',
-                            style: {
-                                label: {
-                                    backgroundColor: 'black',
-                                    borderColor: 'black',
-                                    color: 'white',
-                                    borderWidth: 1
-                                },
-                                wrapper: {
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }
-                            }
-                        }
-                    }}
-                    animateOverlayLabelsOpacity
-                    animateCardOpacity
-                >
-                </Swiper>
+                        }}
+                        animateOverlayLabelsOpacity
+                        animateCardOpacity
+                    >
+                    </Swiper>
+                </View>
+                <View style={styles.container}/>
             </View>
         )
     }
@@ -149,6 +154,10 @@ class SwipeExample extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#F5FCFF'
+    },
+    swiperContainer: {
+        flex: 6,
         backgroundColor: '#F5FCFF'
     },
     card: {
