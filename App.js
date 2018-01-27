@@ -13,10 +13,10 @@ class HomeScreen extends React.Component {
         const {navigate} = this.props.navigation;
         return (
             <View style={styles.homeContainer}>
-                <ScrollView/>
-                <View style={styles.center}>
-                    <Image source={require('./resources/img/ws-logo1.jpg')} />
+                <View style={[styles.center, styles.logoImage]}>
+                    <Image source={require('./resources/img/ws-logo1.jpg')}/>
                 </View>
+                <ScrollView/>
                 <View>
                     <Button
                         title="Go to Swipe screen"
@@ -31,12 +31,14 @@ class HomeScreen extends React.Component {
 const styles = {
     homeContainer: {
         flex: 1,
+        backgroundColor: "#01A89E"
     },
     center: {
         flex: 1,
         alignItems: "center",
         justifyContent: "center"
-    }
+    },
+    logoImage: {}
 };
 
 const App = TabNavigator({
