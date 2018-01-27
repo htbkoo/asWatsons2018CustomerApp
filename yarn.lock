@@ -5038,6 +5038,13 @@ react-native-sticky-header-footer-scroll-view@^2.1.3:
     color "^2.0.1"
     lodash "^4.16.6"
 
+react-native-swipe-cards@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-swipe-cards/-/react-native-swipe-cards-0.1.1.tgz#25a31b450f2616f3a25a101c9fc37ccbb2deb3e2"
+  dependencies:
+    clamp "^1.0.1"
+    prop-types "^15.6.0"
+
 react-native-vector-icons@4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.4.2.tgz#090f42ee0396c4cc4eae0ddaa518028ba8df40c7"
