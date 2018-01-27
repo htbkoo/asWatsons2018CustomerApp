@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, View, ScrollView} from 'react-native'
+import {Button, View, ScrollView, Image} from 'react-native'
 
 import {TabNavigator} from 'react-navigation';
 import SwipeScreen from "./SwipeScreen";
@@ -14,6 +14,9 @@ class HomeScreen extends React.Component {
         return (
             <View style={styles.homeContainer}>
                 <ScrollView/>
+                <View style={styles.center}>
+                    <Image source={require('./resources/img/ws-logo1.jpg')} />
+                </View>
                 <View>
                     <Button
                         title="Go to Swipe screen"
@@ -28,6 +31,11 @@ class HomeScreen extends React.Component {
 const styles = {
     homeContainer: {
         flex: 1,
+    },
+    center: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center"
     }
 };
 
