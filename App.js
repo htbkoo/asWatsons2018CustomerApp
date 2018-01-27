@@ -14,7 +14,7 @@ class HomeScreen extends React.Component {
         return (
             <Button
                 title="Go to Swipe screen"
-                onPress={navigate.bind(this, 'Swipe', {name: 'Jane'})}
+                onPress={navigate.bind(this, 'Swipe', {})}
             />
         );
     }
