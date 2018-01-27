@@ -1,8 +1,29 @@
 import React, {Component} from 'react'
 import Swiper from 'react-native-deck-swiper'
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, Text, View, Image, Button} from 'react-native'
 
-class App extends Component {
+import {
+    StackNavigator,
+} from 'react-navigation';
+
+class HomeScreen extends React.Component {
+    static navigationOptions = {
+        title: 'Welcome',
+    };
+    render() {
+        const { navigate } = this.props.navigation;
+        return (
+            <Button
+                title="Go to Swipe screen"
+                onPress={() =>
+                    navigate('Swipe', { name: 'Jane' })
+                }
+            />
+        );
+    }
+}
+
+class SwipeScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -55,12 +76,14 @@ class App extends Component {
         console.log("rendered SwipeExample");
         return (
             <View style={styles.container}>
-                <View style={styles.container}/>
+                <View style={styles.container}>
+                </View>
                 <View style={styles.swiperContainer}>
                     <Swiper
                         ref={swiper => {
                             this.swiper = swiper
                         }}
+                        backgroundColor={'#4FD0E9'}
                         disableBottomSwipe={true}
                         disableTopSwipe={true}
                         onSwiped={this.onSwiped}
@@ -104,11 +127,16 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: '#E8E8E8',
         justifyContent: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'lightgrey'
     },
     text: {
         textAlign: 'center',
         fontSize: 50,
+        backgroundColor: 'transparent'
+    },
+    image: {
+        maxWidth: 512,
+        maxHeight: 512,
         backgroundColor: 'transparent'
     },
     done: {
@@ -189,5 +217,10 @@ const overlayLabels = {
         }
     }
 };
+
+const App = StackNavigator({
+    Home: { screen: HomeScreen },
+    Swipe: { screen: SwipeScreen },
+});
 
 export default App;
