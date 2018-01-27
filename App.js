@@ -1,23 +1,20 @@
 import React, {Component} from 'react'
 import Swiper from 'react-native-deck-swiper'
-import {StyleSheet, Text, View, Image, Button} from 'react-native'
+import {Button, StyleSheet, Text, View} from 'react-native'
 
-import {
-    StackNavigator,
-} from 'react-navigation';
+import {StackNavigator,} from 'react-navigation';
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
         title: 'Welcome',
     };
+
     render() {
-        const { navigate } = this.props.navigation;
+        const {navigate} = this.props.navigation;
         return (
             <Button
                 title="Go to Swipe screen"
-                onPress={() =>
-                    navigate('Swipe', { name: 'Jane' })
-                }
+                onPress={navigate.bind(this, 'Swipe', {name: 'Jane'})}
             />
         );
     }
@@ -219,8 +216,8 @@ const overlayLabels = {
 };
 
 const App = StackNavigator({
-    Home: { screen: HomeScreen },
-    Swipe: { screen: SwipeScreen },
+    Home: {screen: HomeScreen},
+    Swipe: {screen: SwipeScreen},
 });
 
 export default App;
