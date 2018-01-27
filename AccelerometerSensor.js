@@ -1,15 +1,10 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Accelerometer} from 'expo';
-
-const GRAVITY_EARTH = 9.80665;
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Accelerometer } from 'expo';
 
 export default class AccelerometerSensor extends React.Component {
     state = {
         accelerometerData: {},
-        mAccelCurrent: GRAVITY_EARTH,
-        mAccelLast: GRAVITY_EARTH,
-        mAccel: 0,
     };
 
     componentDidMount() {
@@ -38,7 +33,7 @@ export default class AccelerometerSensor extends React.Component {
 
     _subscribe = () => {
         this._subscription = Accelerometer.addListener(accelerometerData => {
-            this.setState(this._getUpdatedState(accelerometerData));
+            this.setState({ accelerometerData });
         });
     };
 
@@ -47,37 +42,14 @@ export default class AccelerometerSensor extends React.Component {
         this._subscription = null;
     };
 
-    _getUpdatedState(accelerometerData) {
-        let {x, y, z} = accelerometerData;
-        let mAccelLast = this.state.mAccelCurrent;
-        let mAccelCurrent = Math.sqrt(x * x + y * y + z * z);
-        let delta = mAccelCurrent - mAccelLast;
-        let mAccel = this.state.mAccel * 0.9 + delta; // perform low-cut filter
-        return {
-            mAccelCurrent,
-            mAccelLast,
-            mAccel,
-            accelerometerData
-        }
-    }
-
     render() {
-        let hasShaken = this.state.mAccel > 12;
-        let {x, y, z} = this.state.accelerometerData;
-
-        let content = hasShaken
-            ? (<View>
-                <Image source={require("./resources/img/elephant.jpg")}/>
-            </View>)
-            : (<View>
-                <Text>Not shaken :(</Text>
-            </View>);
+        let { x, y, z } = this.state.accelerometerData;
 
         return (
             <View style={styles.sensor}>
                 <Text>Accelerometer:</Text>
-                <Text>x: {round(x)} y: {round(y)} z: {round(z)} mAccel: {round(this.state.mAccel)} mAccelLast: {round(this.state.mAccelLast)} mAccelCurrent: {round(this.state.mAccelCurrent)}</Text>
-                {content}
+                <Text>x: {round(x)} y: {round(y)} z: {round(z)}</Text>
+
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity onPress={this._toggle} style={styles.button}>
                         <Text>Toggle</Text>
@@ -128,4 +100,3 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
     },
 });
-
