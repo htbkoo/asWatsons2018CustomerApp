@@ -3,6 +3,7 @@ import {Button, View, ScrollView, Image} from 'react-native'
 
 import {TabNavigator} from 'react-navigation';
 import SwipeScreen from "./SwipeScreen";
+import ShakeScreen from "./ShakeScreen";
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
@@ -19,7 +20,7 @@ class HomeScreen extends React.Component {
                 <ScrollView/>
                 <View>
                     <Button
-                        title="Go to Swipe screen"
+                        title="Start Swiping!"
                         onPress={navigate.bind(this, 'Swipe', {})}
                     />
                 </View>
@@ -44,6 +45,7 @@ const styles = {
 const App = TabNavigator({
     Home: {screen: HomeScreen},
     Swipe: {screen: SwipeScreen},
+    Shake: {screen: ShakeScreen},
 }, {
     tabBarPosition: 'bottom',
     animationEnabled: true,
