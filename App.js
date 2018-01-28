@@ -28,7 +28,7 @@ class HomeScreen extends React.Component {
                            source={require('./resources/img/bone-icon.png')}/>
                 </View>
                 <ScrollView/>
-                <View>
+                <View style={styles.pickerContainer}>
                     <Picker
                         selectedValue={this.state.location}
                         onValueChange={itemValue => this.setState({location: itemValue})}
@@ -70,6 +70,11 @@ const styles = {
     },
     picker: {
         color: "#ffffff"
+    },
+    pickerContainer: {
+        borderWidth: 1,
+        borderColor: "#ffffff",
+        marginBottom: "10%"
     },
     titleText: {
         fontSize: 50,

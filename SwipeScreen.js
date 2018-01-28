@@ -79,8 +79,8 @@ class SwipeScreen extends Component {
     render() {
         console.log("rendered SwipeExample");
         return (
-            <View style={styles.container}>
-                <View style={styles.container}/>
+            <View style={styles.outerContainer}>
+                <View style={styles.innerContainer}/>
                 <View style={styles.swiperContainer}>
                     <Swiper
                         ref={swiper => {
@@ -109,7 +109,7 @@ class SwipeScreen extends Component {
                     >
                     </Swiper>
                 </View>
-                <View style={styles.container}>
+                <View style={[styles.innerContainer,styles.buttonContainer]}>
                     <Button
                         title="I am done!"
                         color="black"
@@ -122,10 +122,16 @@ class SwipeScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    outerContainer: {
         flex: 1,
         backgroundColor: "#666666",
         padding: "7%"
+    },
+    innerContainer: {
+        flex: 1,
+    },
+    buttonContainer: {
+        marginTop: "10%",
     },
     swiperContainer: {
         flex: 8,
