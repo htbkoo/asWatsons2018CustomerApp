@@ -3,6 +3,10 @@ import Swiper from 'react-native-deck-swiper'
 import {StyleSheet, Text, View, Image, Button} from 'react-native'
 
 class SwipeScreen extends Component {
+    static navigationOptions = {
+        header: null,
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -105,7 +109,7 @@ class SwipeScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#EEEEFF'
+        backgroundColor: "#01A89E",
     },
     swiperContainer: {
         flex: 8,

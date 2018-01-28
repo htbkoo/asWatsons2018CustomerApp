@@ -3,6 +3,10 @@ import {StyleSheet, View} from 'react-native'
 import ShakeSensor from "./ShakeSensor";
 
 class ShakeScreen extends Component {
+    static navigationOptions = {
+        header: null,
+    };
+
     render() {
         console.log("rendered ShakeScreen");
         return (
@@ -16,7 +20,7 @@ class ShakeScreen extends Component {
 const styles = StyleSheet.create({
     shakeContainer: {
         flex: 1,
-        backgroundColor: '#EEEEFF'
+        backgroundColor: "#01A89E",
     },
 });
 
