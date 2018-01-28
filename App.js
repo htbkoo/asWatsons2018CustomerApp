@@ -1,6 +1,6 @@
 import React from 'react'
-import {BackHandler, Button, Image, Picker, Platform, ScrollView, View} from 'react-native'
-import {NavigationActions, StackNavigator} from 'react-navigation';
+import {Button, Image, Picker, ScrollView, View} from 'react-native'
+import {StackNavigator} from 'react-navigation';
 import SwipeScreen from "./SwipeScreen";
 import ShakeScreen from "./ShakeScreen";
 
@@ -13,31 +13,6 @@ class HomeScreen extends React.Component {
         super(props);
         this.state = {
             location: "island"
-        }
-    }
-
-    componentDidMount() {
-        if (Platform.OS === 'android') {
-            console.log("home - added backListener");
-            BackHandler.addEventListener('hardwareBackPress', () => {
-                let navigation = this.props.navigation;
-                console.log(`pressed back, current at: ${navigation.state.routeName}`);
-                const resetAction = NavigationActions.reset({
-                    index: 0,
-                    actions: [
-                        NavigationActions.navigate({routeName: "Home"}),
-                    ],
-                });
-                navigation.dispatch(resetAction);
-                return true;
-            });
-        }
-    }
-
-    componentWillUnmount() {
-        if (Platform.OS === 'android') {
-            console.log("home - removed backListener");
-            BackHandler.removeEventListener('hardwareBackPress');
         }
     }
 
