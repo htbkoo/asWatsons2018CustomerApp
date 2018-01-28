@@ -23,7 +23,7 @@ class HomeScreen extends React.Component {
             <View style={styles.homeContainer}>
                 <View style={[styles.center, styles.logoContainer]}>
                     <Image style={styles.logoImage} resizeMode="contain"
-                           source={require('./resources/img/ws-logo1.jpg')}/>
+                           source={require('./resources/img/bone-icon.png')}/>
                 </View>
                 <ScrollView/>
                 <View>
