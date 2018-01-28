@@ -112,6 +112,7 @@ class SwipeScreen extends Component {
                 <View style={styles.container}>
                     <Button
                         title="I am done!"
+                        color="black"
                         onPress={this._resetNavigation.bind(this, 'Shake')}
                     />
                 </View>

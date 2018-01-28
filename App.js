@@ -42,6 +42,7 @@ class HomeScreen extends React.Component {
                 <View>
                     <Button
                         title="Confirm"
+                        color="black"
                         onPress={navigate.bind(this, 'Swipe', {location: this.state.location})}
                     />
                 </View>

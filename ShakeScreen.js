@@ -27,6 +27,7 @@ class ShakeScreen extends Component {
                 <ShakeSensor/>
                 <Button
                     title="Back to Home"
+                    color="black"
                     onPress={this._resetNavigation.bind(this, 'Home')}
                 />
             </View>
