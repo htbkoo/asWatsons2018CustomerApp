@@ -37,7 +37,7 @@ class ShakeScreen extends Component {
 const styles = StyleSheet.create({
     shakeContainer: {
         flex: 1,
-        backgroundColor: "#01A89E",
+        backgroundColor: "#666666",
         padding: "10%",
         justifyContent: "space-around"
     },

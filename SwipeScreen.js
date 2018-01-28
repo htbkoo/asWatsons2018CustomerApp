@@ -109,7 +109,7 @@ class SwipeScreen extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#01A89E",
+        backgroundColor: "#666666",
         padding: "7%"
     },
     swiperContainer: {
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: '#E8E8E8',
         justifyContent: 'center',
-        backgroundColor: '#4FD0E9'
+        backgroundColor: '#AAAAAA'
     },
     cardCenter:{
         flex: 1,
