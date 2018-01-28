@@ -1,15 +1,15 @@
 {
   "expo": {
-    "name": "porkBoneTinder",
+    "name": "porkBone",
     "icon": "./resources/img/bone-icon.png",
     "version": "0.1.0",
-    "slug": "pork-bone-tinder",
+    "slug": "pork-bone",
     "sdkVersion": "25.0.0",
     "ios": {
-      "bundleIdentifier": "com.porkbone.tinder"
+      "bundleIdentifier": "com.thirteen.porkbone"
     },
     "android": {
-      "package": "com.porkbone.tinder"
+      "package": "com.thirteen.porkbone"
     }
   }
 }
