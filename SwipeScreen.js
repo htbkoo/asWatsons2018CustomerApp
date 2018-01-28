@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import Swiper from 'react-native-deck-swiper'
 import {StyleSheet, Text, View, Image, Button} from 'react-native'
 
+import {NavigationActions, withNavigation} from 'react-navigation';
+
+@withNavigation
 class SwipeScreen extends Component {
     static navigationOptions = {
         header: null,
@@ -21,6 +24,16 @@ class SwipeScreen extends Component {
             isSwipingBack: false,
             cardIndex: 0
         }
+    }
+
+    _resetNavigation(targetRoute) {
+        const resetAction = NavigationActions.reset({
+            index: 0,
+            actions: [
+                NavigationActions.navigate({routeName: targetRoute}),
+            ],
+        });
+        this.props.navigation.dispatch(resetAction);
     }
 
     renderCard = card => {
@@ -99,7 +112,7 @@ class SwipeScreen extends Component {
                 <View style={styles.container}>
                     <Button
                         title="I am done!"
-                        onPress={this.props.navigation.navigate.bind(this, 'Shake', {})}
+                        onPress={this._resetNavigation.bind(this, 'Shake')}
                     />
                 </View>
             </View>
