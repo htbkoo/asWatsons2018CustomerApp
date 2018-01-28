@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Image, Picker, ScrollView, View} from 'react-native'
+import {Button, Image, Picker, ScrollView, Text, View} from 'react-native'
 import {StackNavigator} from 'react-navigation';
 import SwipeScreen from "./SwipeScreen";
 import ShakeScreen from "./ShakeScreen";
@@ -20,6 +20,9 @@ class HomeScreen extends React.Component {
         const {navigate} = this.props.navigation;
         return (
             <View style={styles.homeContainer}>
+                <View style={[styles.center]}>
+                    <Text style={styles.titleText}>Flash!</Text>
+                </View>
                 <View style={[styles.center, styles.logoContainer]}>
                     <Image style={styles.logoImage} resizeMode="contain"
                            source={require('./resources/img/bone-icon.png')}/>
@@ -28,7 +31,9 @@ class HomeScreen extends React.Component {
                 <View>
                     <Picker
                         selectedValue={this.state.location}
-                        onValueChange={itemValue => this.setState({location: itemValue})}>
+                        onValueChange={itemValue => this.setState({location: itemValue})}
+                        style={styles.picker}
+                    >
                         <Picker.Item label="Hong Kong Island" value="island"/>
                         <Picker.Item label="Kowloon" value="kowloon"/>
                         <Picker.Item label="New Territories" value="nt"/>
@@ -61,6 +66,14 @@ const styles = {
         flex: 1,
         maxHeight: "80%",
         maxWidth: "80%"
+    },
+    picker: {
+        color: "#ffffff"
+    },
+    titleText: {
+        fontSize: 50,
+        fontFamily: "",
+        color: "#ffffff"
     }
 };
 
