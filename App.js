@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Image, ScrollView, View} from 'react-native'
+import {Button, Image, ScrollView, View, Picker} from 'react-native'
 
 import {StackNavigator} from 'react-navigation';
 import SwipeScreen from "./SwipeScreen";
@@ -9,6 +9,13 @@ class HomeScreen extends React.Component {
     static navigationOptions = {
         header: null,
     };
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            location: "island"
+        }
+    }
 
     render() {
         const {navigate} = this.props.navigation;
@@ -20,9 +27,18 @@ class HomeScreen extends React.Component {
                 </View>
                 <ScrollView/>
                 <View>
+                    <Picker
+                        selectedValue={this.state.location}
+                        onValueChange={itemValue => this.setState({location: itemValue})}>
+                        <Picker.Item label="Hong Kong Island" value="island"/>
+                        <Picker.Item label="Kowloon" value="kowloon"/>
+                        <Picker.Item label="New Territories" value="nt"/>
+                    </Picker>
+                </View>
+                <View>
                     <Button
                         title="Confirm"
-                        onPress={navigate.bind(this, 'Swipe', {})}
+                        onPress={navigate.bind(this, 'Swipe', {location: this.state.location})}
                     />
                 </View>
             </View>
@@ -40,9 +56,7 @@ const styles = {
         alignItems: "center",
         justifyContent: "center"
     },
-    logoContainer: {
-
-    },
+    logoContainer: {},
     logoImage: {
         flex: 1,
         maxHeight: "80%",
