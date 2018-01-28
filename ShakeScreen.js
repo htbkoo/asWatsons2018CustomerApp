@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {StyleSheet, View, Button} from 'react-native'
+import {Button, StyleSheet, View} from 'react-native'
 import ShakeSensor from "./ShakeSensor";
 
 import {NavigationActions, withNavigation} from 'react-navigation';
