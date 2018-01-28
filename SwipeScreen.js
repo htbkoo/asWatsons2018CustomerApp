@@ -25,8 +25,8 @@ class SwipeScreen extends Component {
     renderCard = card => {
         return (
             <View style={styles.card}>
-                <View style={[styles.center, styles.logoImage]}>
-                    <Image source={card.src}/>
+                <View style={[styles.cardCenter, styles.logoImage]}>
+                    <Image style={styles.cardImage} resizeMode="contain" source={card.src}/>
                 </View>
                 <Text style={styles.text}>{card.index}</Text>
             </View>
@@ -124,14 +124,19 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#4FD0E9'
     },
+    cardCenter:{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center"
+    },
     text: {
         textAlign: 'center',
         fontSize: 50,
         backgroundColor: 'transparent'
     },
-    image: {
-        maxWidth: 512,
-        maxHeight: 512,
+    cardImage: {
+        maxWidth: "80%",
+        maxHeight: "80%",
         backgroundColor: 'transparent'
     },
     done: {
