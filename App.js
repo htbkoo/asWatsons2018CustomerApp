@@ -7,7 +7,7 @@ import ShakeScreen from "./ShakeScreen";
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
-        title: 'Welcome',
+        header: null,
     };
 
     render() {
@@ -20,7 +20,7 @@ class HomeScreen extends React.Component {
                 <ScrollView/>
                 <View>
                     <Button
-                        title="Start Swiping!"
+                        title="Confirm"
                         onPress={navigate.bind(this, 'Swipe', {})}
                     />
                 </View>
