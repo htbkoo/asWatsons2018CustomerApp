@@ -45,8 +45,8 @@ const styles = {
     },
     logoImage: {
         flex: 1,
-        maxHeight: 384,
-        maxWidth: 384
+        maxHeight: "80%",
+        maxWidth: "80%"
     }
 };
 
