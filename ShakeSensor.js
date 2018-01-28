@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
     text: {
         textAlign: 'center',
         fontSize: 50,
+        color: "#ffffff",
         backgroundColor: 'transparent'
     },
     giftImage: {
