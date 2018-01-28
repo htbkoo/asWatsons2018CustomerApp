@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Accelerometer} from 'expo';
+import {StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import {Gyroscope} from 'expo';
 
 const GRAVITY_EARTH = 9.80665;
 
@@ -29,15 +29,15 @@ export default class ShakeSensor extends React.Component {
     };
 
     _slow = () => {
-        Accelerometer.setUpdateInterval(1000);
+        Gyroscope.setUpdateInterval(1000);
     };
 
     _fast = () => {
-        Accelerometer.setUpdateInterval(16);
+        Gyroscope.setUpdateInterval(16);
     };
 
     _subscribe = () => {
-        this._subscription = Accelerometer.addListener(accelerometerData => {
+        this._subscription = Gyroscope.addListener(accelerometerData => {
             this.setState(this._getUpdatedState(accelerometerData));
         });
     };
@@ -62,7 +62,7 @@ export default class ShakeSensor extends React.Component {
     }
 
     render() {
-        let hasShaken = this.state.mAccel > 12;
+        let hasShaken = this.state.mAccel > 2;
         let {x, y, z} = this.state.accelerometerData;
 
         let content = hasShaken
@@ -75,7 +75,7 @@ export default class ShakeSensor extends React.Component {
 
         return (
             <View style={styles.sensor}>
-                <Text>Accelerometer:</Text>
+                <Text>Gyroscope:</Text>
                 <Text>x: {round(x)} y: {round(y)} z: {round(z)} mAccel: {round(this.state.mAccel)} mAccelLast: {round(this.state.mAccelLast)} mAccelCurrent: {round(this.state.mAccelCurrent)}</Text>
                 {content}
                 <View style={styles.buttonContainer}>
