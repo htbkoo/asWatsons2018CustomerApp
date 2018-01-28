@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#01A89E",
+        padding: "7%"
     },
     swiperContainer: {
         flex: 8,

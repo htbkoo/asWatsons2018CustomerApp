@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     shakeContainer: {
         flex: 1,
         backgroundColor: "#01A89E",
+        padding: "10%"
     },
 });
 
