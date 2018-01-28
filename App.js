@@ -49,7 +49,8 @@ class HomeScreen extends React.Component {
 const styles = {
     homeContainer: {
         flex: 1,
-        backgroundColor: "#01A89E"
+        backgroundColor: "#01A89E",
+        padding: "10%"
     },
     center: {
         flex: 1,
