@@ -190,9 +190,9 @@ const overlayLabels = {
             wrapper: {
                 flexDirection: 'column',
                 alignItems: 'flex-end',
-                justifyContent: 'flex-start',
-                marginTop: 30,
-                marginLeft: -30
+                justifyContent: 'flex-end',
+                marginBottom: 50,
+                marginLeft: -50
             }
         }
     },
@@ -208,9 +208,9 @@ const overlayLabels = {
             wrapper: {
                 flexDirection: 'column',
                 alignItems: 'flex-start',
-                justifyContent: 'flex-start',
-                marginTop: 30,
-                marginLeft: 30
+                justifyContent: 'flex-end',
+                marginBottom: 50,
+                marginLeft: 50
             }
         }
     },
