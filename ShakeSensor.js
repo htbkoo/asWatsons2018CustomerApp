@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View, Image, ActivityIndicator} from 'react-native';
 import {Gyroscope} from 'expo';
 
 const GRAVITY_EARTH = 9.80665;
@@ -10,6 +10,7 @@ export default class ShakeSensor extends React.Component {
         mAccelCurrent: GRAVITY_EARTH,
         mAccelLast: GRAVITY_EARTH,
         mAccel: 0,
+        hasShaken: false
     };
 
     componentDidMount() {
@@ -54,42 +55,33 @@ export default class ShakeSensor extends React.Component {
         let mAccelCurrent = Math.sqrt(x * x + y * y + z * z);
         let delta = mAccelCurrent - mAccelLast;
         let mAccel = this.state.mAccel * 0.9 + delta; // perform low-cut filter
+        let hasShaken = this.state.hasShaken || (mAccel > 2);
         return {
             mAccelCurrent,
             mAccelLast,
             mAccel,
-            accelerometerData
+            accelerometerData,
+            hasShaken
         }
     }
 
     render() {
-        let hasShaken = this.state.mAccel > 2;
-        let {x, y, z} = this.state.accelerometerData;
+        console.log(this.state.hasShaken);
 
-        let content = hasShaken
-            ? (<View>
-                <Image source={require("./resources/img/elephant.jpg")}/>
+        let content = this.state.hasShaken
+            ? (<View style={styles.giftImageContainer}>
+                <Image resizeMode="contain" source={require("./resources/img/gift.png")}/>
             </View>)
             : (<View>
-                <Text>Not shaken :(</Text>
+                <ActivityIndicator size="large" color="#0000ff"/>
             </View>);
 
         return (
             <View style={styles.sensor}>
-                <Text>Gyroscope:</Text>
-                <Text>x: {round(x)} y: {round(y)} z: {round(z)} mAccel: {round(this.state.mAccel)} mAccelLast: {round(this.state.mAccelLast)} mAccelCurrent: {round(this.state.mAccelCurrent)}</Text>
-                {content}
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity onPress={this._toggle} style={styles.button}>
-                        <Text>Toggle</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={this._slow} style={[styles.button, styles.middleButton]}>
-                        <Text>Slow</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={this._fast} style={styles.button}>
-                        <Text>Fast</Text>
-                    </TouchableOpacity>
+                <View style={styles.container}>
+                    <Text style={styles.text}>Shake!</Text>
                 </View>
+                {content}
             </View>
         );
     }
@@ -106,6 +98,11 @@ function round(n) {
 const styles = StyleSheet.create({
     container: {
         flex: 1
+    },
+    giftImageContainer: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center"
     },
     buttonContainer: {
         flexDirection: 'row',
@@ -128,5 +125,13 @@ const styles = StyleSheet.create({
         marginTop: 15,
         paddingHorizontal: 10,
     },
+    text: {
+        textAlign: 'center',
+        fontSize: 50,
+        backgroundColor: 'transparent'
+    },
+    giftImage: {
+        flex: 1
+    }
 });
 
