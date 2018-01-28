@@ -47,6 +47,7 @@ export default class ShakeSensor extends React.Component {
         this._subscription = null;
     };
 
+    // reference: https://stackoverflow.com/a/2318356
     _getUpdatedState(accelerometerData) {
         let {x, y, z} = accelerometerData;
         let mAccelLast = this.state.mAccelCurrent;
