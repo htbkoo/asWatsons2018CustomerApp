@@ -11,9 +11,10 @@ class SwipeScreen extends Component {
         super(props);
         this.state = {
             cards: [
-                {src: require('./resources/img/elephant.jpg'), index: 1},
-                {src: require('./resources/img/ws-logo1.jpg'), index: 2},
-                {src: require('./resources/img/pig_bone.jpg'), index: 3}
+                {src: require('./resources/img/apple.png'), index: 1},
+                {src: require('./resources/img/cherry.png'), index: 2},
+                {src: require('./resources/img/gift.png'), index: 3},
+                {src: require('./resources/img/bone-icon.png'), index: 4}
             ],
             swipedAllCards: false,
             swipeDirection: '',
