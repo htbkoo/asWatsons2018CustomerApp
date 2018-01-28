@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View, Image, ActivityIndicator} from 'react-native';
+import {ActivityIndicator, Image, StyleSheet, Text, View} from 'react-native';
 import {Gyroscope} from 'expo';
 
 const GRAVITY_EARTH = 9.80665;
@@ -68,31 +68,23 @@ export default class ShakeSensor extends React.Component {
     render() {
         console.log(this.state.hasShaken);
 
+        let text = this.state.hasShaken ? "Thank you!" : "Shake!";
+
         let content = this.state.hasShaken
-            ? (<View style={styles.giftImageContainer}>
-                <Image resizeMode="contain" source={require("./resources/img/gift.png")}/>
-            </View>)
-            : (<View>
-                <ActivityIndicator size="large" color="#0000ff"/>
-            </View>);
+            ? <Image style={styles.giftImage} resizeMode="contain" source={require('./resources/img/gift.png')}/>
+            : <ActivityIndicator size="large" color="#0000ff"/>;
 
         return (
-            <View style={styles.sensor}>
+            <View style={styles.shakeSensor}>
                 <View style={styles.container}>
-                    <Text style={styles.text}>Shake!</Text>
+                    <Text style={styles.text}>{text}</Text>
                 </View>
-                {content}
+                <View style={styles.giftImageContainer}>
+                    {content}
+                </View>
             </View>
         );
     }
-}
-
-function round(n) {
-    if (!n) {
-        return 0;
-    }
-
-    return Math.floor(n * 100) / 100;
 }
 
 const styles = StyleSheet.create({
@@ -100,7 +92,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     giftImageContainer: {
-        flex: 1,
+        flex: 3,
         alignItems: "center",
         justifyContent: "center"
     },
@@ -121,7 +113,8 @@ const styles = StyleSheet.create({
         borderRightWidth: 1,
         borderColor: '#ccc',
     },
-    sensor: {
+    shakeSensor: {
+        flex: 1,
         marginTop: 15,
         paddingHorizontal: 10,
     },
@@ -131,7 +124,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent'
     },
     giftImage: {
-        flex: 1
+        flex: 1,
+        maxWidth: "80%",
+        maxHeight: "80%"
     }
 });
 
