@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, View, ScrollView, Image} from 'react-native'
+import {Button, Image, ScrollView, View} from 'react-native'
 
 import {StackNavigator} from 'react-navigation';
 import SwipeScreen from "./SwipeScreen";
@@ -14,8 +14,9 @@ class HomeScreen extends React.Component {
         const {navigate} = this.props.navigation;
         return (
             <View style={styles.homeContainer}>
-                <View style={[styles.center, styles.logoImage]}>
-                    <Image source={require('./resources/img/ws-logo1.jpg')}/>
+                <View style={[styles.center, styles.logoContainer]}>
+                    <Image style={styles.logoImage} resizeMode="contain"
+                           source={require('./resources/img/ws-logo1.jpg')}/>
                 </View>
                 <ScrollView/>
                 <View>
@@ -39,7 +40,14 @@ const styles = {
         alignItems: "center",
         justifyContent: "center"
     },
-    logoImage: {}
+    logoContainer: {
+
+    },
+    logoImage: {
+        flex: 1,
+        maxHeight: 384,
+        maxWidth: 384
+    }
 };
 
 const App = StackNavigator({
